@@ -1,0 +1,31 @@
+Chave,Significado,Tipo,Uso no Código 3
+rpm,Rotações por Minuto,int,Determina estado (DIED/RUNNING).
+t_cht,Temp. Cabeçote (CHT),float,Valor absoluto para alertas de fervura.
+d_cht,Derivada do CHT,float,Preditiva: Velocidade do aquecimento.
+p_oil,Pressão de Óleo,float,Segurança crítica (Contenção imediata).
+t_oil,Temp. do Óleo,float,Define viscosidade e prontidão do motor.
+d_oil,Derivada do Óleo,float,Previsão de inércia térmica.
+v_vac,Vácuo do Coletor,float,Carga do motor (Cruzeiro vs Esforço).
+i_res,Integral Resfriamento,float,Preditiva: Eficiência atual do ar/seaflow.
+v_bat,Voltagem Bateria,float,Saúde do alternador e elétrica.
+lmb,Lambda (Mistura),float,Eficiência da queima (Carburação).
+
+
+
+
+Stream,Origem,Conteúdo (Payload),Frequência,Consumidor Principal
+kombi:stream:log,BridgeSerial,"Raw Data (OILP, OILT, RPM...)",Ultra Rápida,FastController (CORE)
+kombi:stream:electric,Modelos (Hardware),"Status Sensor (ok/err), Volts",Média,HealthWorker / Dash
+kombi:stream:engine,Modelos (Lógica),"Labels, Status (0-5), Severidade",Rápida,Dash / HealthWorker
+kombi:stream:thermal,CHT/SlowData,"Temps Cabeçote, Ambiente, Deltas",Lenta,HealthWorker (Tendência)
+kombi:stream:health,HealthWorker,"Score Geral (0-100), Status Vital",Média,Dashboard / Histórico
+kombi:stream:alerts,Workers,Mensagens de Alerta e Emergência,Eventual,Telegram / Buzzer / Dash
+
+
+
+Nível,Cor,Significado,Exemplo
+1,Branco/Cinza,Log/Info,"""Log de viagem iniciado"""
+2,Azul,Ação do Sistema,"""Ventoinha ativada (PID)"""
+3,Amarelo,Atenção,"""Vácuo oscilando na lenta"""
+4,Laranja,Warning/Urgente,"""Temperatura subindo rápido"""
+5,Vermelho,Critical/Pare,"""Pressão de óleo abaixo de 0.5"""
