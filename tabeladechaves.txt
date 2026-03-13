@@ -1,16 +1,3 @@
-Chave,Significado,Tipo,Uso no Código 3
-rpm,Rotações por Minuto,int,Determina estado (DIED/RUNNING).
-t_cht,Temp. Cabeçote (CHT),float,Valor absoluto para alertas de fervura.
-d_cht,Derivada do CHT,float,Preditiva: Velocidade do aquecimento.
-p_oil,Pressão de Óleo,float,Segurança crítica (Contenção imediata).
-t_oil,Temp. do Óleo,float,Define viscosidade e prontidão do motor.
-d_oil,Derivada do Óleo,float,Previsão de inércia térmica.
-v_vac,Vácuo do Coletor,float,Carga do motor (Cruzeiro vs Esforço).
-i_res,Integral Resfriamento,float,Preditiva: Eficiência atual do ar/seaflow.
-v_bat,Voltagem Bateria,float,Saúde do alternador e elétrica.
-lmb,Lambda (Mistura),float,Eficiência da queima (Carburação).
-
-
 
 
 Stream,Origem,Conteúdo (Payload),Frequência,Consumidor Principal
