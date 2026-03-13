@@ -11,7 +11,7 @@ class OilPressureHealthModel {
       IDEAL_MAX: 4.5
     };
   }
-
+//medição
   analisar(val, isHardwareOk) {
     const pressure = parseFloat(Number(val).toFixed(1));
     const analise = this._processarRegras(pressure, isHardwareOk);
